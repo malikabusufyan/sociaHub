@@ -25,6 +25,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+import { register } from "./controllers/auth.js";
 
 //File Storage
 const storage = multer.diskStorage({
@@ -36,6 +37,9 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
+
+//Auth Routes
+app.post("/auth/register", upload.single("picture"), register);
 
 //Connect to Database and Port
 const PORT = process.env.PORT || 8000;
