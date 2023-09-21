@@ -8,10 +8,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import { error } from "console";
 
 // Middlewares and Configurations
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -25,6 +23,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js";
 
 //File Storage
@@ -41,6 +40,9 @@ const upload = multer({ storage: storage });
 //Auth Routes
 app.post("/auth/register", upload.single("picture"), register);
 
+/* ROUTES */
+app.use("/auth", authRoutes);
+
 //Connect to Database and Port
 const PORT = process.env.PORT || 8000;
 mongoose
@@ -49,6 +51,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server is Up and Running ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`Database Connected Server is Up and Running ${PORT}`)
+    );
   })
   .catch((error) => console.log(`${error} Error in connect`));
