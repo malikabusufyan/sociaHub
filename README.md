@@ -22,7 +22,7 @@ Change the current working directory to where you want to store the project:
 cd /path/to/your/directory
 Clone your forked repository to your local machine.
 
-git clone https://github.com/yourusername/social-media-app-clone.git
+git clone [https://github.com/yourusername/social-media-app-clone.git](https://github.com/malikabusufyan/socioHub.git)
 
 ### Set Up the Backend
 Navigate to the backend directory of the project:
