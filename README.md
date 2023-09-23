@@ -33,21 +33,19 @@ Install the backend dependencies:
 npm install
 Create a .env file in the backend directory and configure the following environment variables:
 
-PORT=5000
-MONGODB_URI=mongodb://localhost/social-media-app
-JWT_SECRET=your-secret-key
-Replace your-secret-key with a strong and unique secret key for JWT authentication.
+1:- PORT=5000
+2:- MONGODB_URI=mongodb://localhost/social-media-app
+3:- JWT_SECRET=your-secret-key
+
+Note:- Replace your-secret-key with a strong and unique secret key for JWT authentication.
 
 ### Start the backend server:
 npm start
-
 
 ## Set Up the Frontend
 Open a new terminal window/tab.
 
 Navigate to the frontend directory of the project:
-
-cd social-media-app-clone/frontend
 
 Install the frontend dependencies:
 
